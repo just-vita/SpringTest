@@ -6,7 +6,10 @@
 http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="userDao" class="com.test.impl.UserDaoImpl"/>
+    <bean id="userDao" class="com.test.impl.UserDaoImpl">
+        <property name="name" value="test"/>
+        <property name="age" value="10"/>
+    </bean>
 
 <!--    <bean id="userService" class="com.test.impl.UserServiceImpl">-->
 <!--        <property name="userDao" ref="userDao"></property>-->
