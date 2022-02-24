@@ -12,6 +12,10 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 <!--        <property name="userDao" ref="userDao"></property>-->
 <!--    </bean>-->
 
-    <bean id="userService" class="com.test.impl.UserServiceImpl" p:userDao-ref="userDao"/>
+<!--    <bean id="userService" class="com.test.impl.UserServiceImpl" p:userDao-ref="userDao"/>-->
+
+    <bean id="userService" class="com.test.impl.UserServiceImpl">
+        <constructor-arg name="userDao" ref="userDao"/>
+    </bean>
 
 </beans>
