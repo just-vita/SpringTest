@@ -1,30 +1,38 @@
 package com.test.impl;
 
+import com.domain.User;
 import com.test.UserDao;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+
 public class UserDaoImpl implements UserDao {
-    private String name;
-    private int age;
+    private List<String> list;
+    private Map<String, User> map;
+    private Properties properties;
 
     public UserDaoImpl() {
+
     }
 
-    public UserDaoImpl(String name, int age) {
-        this.name = name;
-        this.age = age;
+    public void setList(List<String> list) {
+        this.list = list;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMap(Map<String, User> map) {
+        this.map = map;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setProperties(Properties properties) {
+        this.properties = properties;
     }
 
     @Override
     public void save() {
-        System.out.println(name+"==="+age);
+        System.out.println(list);
+        System.out.println(map);
+        System.out.println(properties);
         System.out.println("method save invoded...");
 
     }

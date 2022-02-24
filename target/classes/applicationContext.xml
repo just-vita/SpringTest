@@ -11,19 +11,44 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 <!--        <property name="age" value="10"/>-->
 <!--    </bean>-->
 
-    <bean id="userDao" class="com.test.impl.UserDaoImpl">
-        <constructor-arg name="name" value="constructor"/>
-        <constructor-arg name="age" value="100"/>
-    </bean>
-
-<!--    <bean id="userService" class="com.test.impl.UserServiceImpl">-->
-<!--        <property name="userDao" ref="userDao"></property>-->
+<!--    <bean id="userDao" class="com.test.impl.UserDaoImpl">-->
+<!--        <constructor-arg name="name" value="constructor"/>-->
+<!--        <constructor-arg name="age" value="100"/>-->
 <!--    </bean>-->
+
+    <bean id="userService" class="com.test.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
 
 <!--    <bean id="userService" class="com.test.impl.UserServiceImpl" p:userDao-ref="userDao"/>-->
 
-    <bean id="userService" class="com.test.impl.UserServiceImpl">
-        <constructor-arg name="userDao" ref="userDao"/>
+<!--    <bean id="userService" class="com.test.impl.UserServiceImpl">-->
+<!--        <constructor-arg name="userDao" ref="userDao"/>-->
+<!--    </bean>-->
+
+    <bean id="u1" class="com.domain.User"/>
+    <bean id="u2" class="com.domain.User"/>
+    <bean id="userDao" class="com.test.impl.UserDaoImpl">
+        <property name="list">
+            <list>
+                <value>111</value>
+                <value>222</value>
+                <value>333</value>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="u1" value-ref="u1"/>
+                <entry key="u2" value-ref="u2"/>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="p1">p111</prop>
+                <prop key="p2">p222</prop>
+                <prop key="p3">p333</prop>
+            </props>
+        </property>
     </bean>
 
 </beans>
