@@ -6,9 +6,14 @@
 http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+<!--    <bean id="userDao" class="com.test.impl.UserDaoImpl">-->
+<!--        <property name="name" value="test"/>-->
+<!--        <property name="age" value="10"/>-->
+<!--    </bean>-->
+
     <bean id="userDao" class="com.test.impl.UserDaoImpl">
-        <property name="name" value="test"/>
-        <property name="age" value="10"/>
+        <constructor-arg name="name" value="constructor"/>
+        <constructor-arg name="age" value="100"/>
     </bean>
 
 <!--    <bean id="userService" class="com.test.impl.UserServiceImpl">-->
