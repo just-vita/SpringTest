@@ -1,3 +1,4 @@
+import com.alibaba.druid.pool.DruidDataSource;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import com.test.UserDao;
 import org.junit.Test;
@@ -14,6 +15,17 @@ public class UserDemo {
         dataSource.setDriverClass("com.mysql.cj.jdbc.Driver");
         dataSource.setJdbcUrl("jdbc:mysql:///travel?serverTimezone=UTC&Unicode=true&characterEncoding=UTF-8");
         dataSource.setUser("root");
+        dataSource.setPassword("zxc758203");
+        Connection connection = dataSource.getConnection();
+        System.out.println(connection);
+        connection.close();
+    }
+    @Test
+    public void test2() throws Exception {
+        DruidDataSource dataSource = new DruidDataSource();
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql:///travel?serverTimezone=UTC&Unicode=true&characterEncoding=UTF-8");
+        dataSource.setUsername("root");
         dataSource.setPassword("zxc758203");
         Connection connection = dataSource.getConnection();
         System.out.println(connection);
