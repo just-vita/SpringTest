@@ -26,6 +26,7 @@
   <name>SpringTest1</name>
   <modules>
     <module>SpringTest2</module>
+      <module>SpringMvcTest</module>
   </modules>
   <groupId>org.example</groupId>
   <artifactId>SpringTest1</artifactId>
