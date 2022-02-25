@@ -10,8 +10,9 @@ import javax.servlet.ServletContextListener;
 public class ContextLoaderListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
         ServletContext servletContext = servletContextEvent.getServletContext();
+        String contextConfigLocation = servletContext.getInitParameter("contextConfigLocation");
+        ApplicationContext app = new ClassPathXmlApplicationContext(contextConfigLocation);
         servletContext.setAttribute("app",app);
         System.out.println("spring container created--------------------------");
     }
