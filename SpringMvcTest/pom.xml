@@ -108,6 +108,11 @@
       <version>7.0.37</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>5.0.5.RELEASE</version>
+    </dependency>
   </dependencies>
 
 
