@@ -1,9 +1,10 @@
-package com.web;
+package com.web.servlet;
 
 import com.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,9 +16,10 @@ import java.io.IOException;
 public class UserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
-        UserService bean = app.getBean(UserService.class);
-        bean.save();
+        ServletContext servletContext = req.getServletContext();
+        ApplicationContext app = (ApplicationContext) servletContext.getAttribute("app");
+        UserService userService = app.getBean(UserService.class);
+        userService.save();
     }
 
     @Override
