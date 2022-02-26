@@ -3,6 +3,7 @@ package com.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -31,8 +32,14 @@ public class UserController {
     }
 
     @RequestMapping("/test4")
-    public String save3(Model model){
+    public String save4(Model model){
         model.addAttribute("username","model mode");
         return "test";
+    }
+
+    @RequestMapping("/test5")
+    @ResponseBody
+    public String save5(){
+        return "ooooooooooooooo";
     }
 }
