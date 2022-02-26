@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -97,5 +98,11 @@ public class UserController {
     @ResponseBody
     public void save12(@RequestBody List<User> userList) {
         System.out.println(userList);
+    }
+
+    @RequestMapping("/test13/{name}")
+    @ResponseBody
+    public void save13(@PathVariable(value = "name", required = true) String username) {
+        System.out.println(username);
     }
 }
