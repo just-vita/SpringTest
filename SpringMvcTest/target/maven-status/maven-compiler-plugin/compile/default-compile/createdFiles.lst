@@ -1,5 +1,6 @@
 com\dao\impl\UserDaoImpl.class
 com\domain\User.class
+com\converter\DateConverter.class
 com\dao\UserDao.class
 com\controller\UserController.class
 com\web\listener\WebApplicationContextUtils.class

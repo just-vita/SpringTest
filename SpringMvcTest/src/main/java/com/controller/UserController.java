@@ -5,12 +5,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -104,5 +104,19 @@ public class UserController {
     @ResponseBody
     public void save13(@PathVariable(value = "name", required = true) String username) {
         System.out.println(username);
+    }
+
+    @RequestMapping("/test14")
+    @ResponseBody
+    public void save14(@CookieValue(value = "User-Agent") String user_agent) {
+        System.out.println(user_agent);
+    }
+
+    @RequestMapping("/test15")
+    @ResponseBody
+    public void save15(String name, MultipartFile file) throws IOException {
+        String originalFilename = file.getOriginalFilename();
+        System.out.println(name);
+        file.transferTo(new File("C:\\Users\\dell\\Desktop\\"+originalFilename));
     }
 }
