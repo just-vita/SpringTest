@@ -5,11 +5,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -59,17 +61,41 @@ public class UserController {
 
     @RequestMapping("/test7")
     @ResponseBody
-    public User save7() throws JsonProcessingException {
+    public User save7() {
         return new User("test", 1);
     }
 
     @RequestMapping("/test8")
     @ResponseBody
-    public List<String> save8() throws JsonProcessingException {
+    public List<String> save8(){
         List<String> list = new ArrayList<>();
         list.add("1");
         list.add("2");
         list.add("3");
         return list;
+    }
+
+    @RequestMapping("/test9")
+    @ResponseBody
+    public void save9(String username, int age) {
+        System.out.println(username+" "+age);
+    }
+
+    @RequestMapping("/test10")
+    @ResponseBody
+    public void save10(User user) {
+        System.out.println(user);
+    }
+
+    @RequestMapping("/test11")
+    @ResponseBody
+    public void save11(String[] strs) {
+        System.out.println(Arrays.asList(strs));
+    }
+
+    @RequestMapping("/test12")
+    @ResponseBody
+    public void save12(@RequestBody List<User> userList) {
+        System.out.println(userList);
     }
 }
